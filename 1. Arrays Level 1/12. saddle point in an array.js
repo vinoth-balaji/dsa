@@ -13,6 +13,8 @@ for (let i = 0; i < a.length; i++) {
     if (a[i][j] < a[i][sm]) sm = j;
   }
 
+  //sm gives column indef on which the column has to be searched
+
   for (let k = 0; k < a.length; k++) {
     if (a[k][sm] > a[i][sm]) flag = false;
   }
