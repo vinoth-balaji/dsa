@@ -1,21 +1,23 @@
-let a = [30, 10, 20, 40, 60, 50, 75, 70];
+var maxChunksToSorted = function (arr) {
+  let chunks = 0;
+  let rightMin = [];
 
-let rightMin = [];
-let chunks = 0;
-
-rightMin[a.length - 1] = a[a.length - 1];
-for (let i = a.length - 2; i >= 0; i--) {
-  rightMin[i] = Math.min(a[i], rightMin[i + 1]);
-}
-
-let max = a[0];
-for (let i = 0; i < a.length; i++) {
-  if (a[i] > max) max = a[i];
-
-  //   <= as we need max chunks
-  if (max <= rightMin[i + 1] || i + 1 == a.length - 1) {
-    chunks++;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (i == arr.length - 1) rightMin[i] = arr[i];
+    else rightMin[i] = Math.min(arr[i], rightMin[i + 1]);
   }
-}
 
-console.log(chunks);
+  let leftMax = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > leftMax) leftMax = arr[i];
+
+    if (i == arr.length - 1 && arr[i] <= leftMax) chunks++;
+    else if (leftMax <= rightMin[i + 1]) {
+      chunks++;
+    }
+  }
+
+  return chunks > 0 ? chunks : 1;
+};
+let arr = [1, 0, 3, 2, 1];
+console.log(maxChunksToSorted(arr));

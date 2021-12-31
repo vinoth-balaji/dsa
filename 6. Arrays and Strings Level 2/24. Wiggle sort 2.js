@@ -1,5 +1,5 @@
 let a = [3, 5, 2, 1, 6, 4];
-a = a.sort();
+a = a.sort((a, b) => a - b);
 let b = [];
 
 let j = a.length - 1;

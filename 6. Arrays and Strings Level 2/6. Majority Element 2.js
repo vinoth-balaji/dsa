@@ -29,6 +29,6 @@ for (let i = 0; i < a.length; i++) {
 }
 
 if (val1_freq > +(a.length / 3)) console.log(val1);
-if (val2_freq > +(a.length / 3)) console.log(val2);
+if (val1 != val2 && val2_freq > +(a.length / 3)) console.log(val2);
 if (val1_freq <= +(a.length / 3) && val2_freq <= +(a.length / 3))
   console.log("Majority Element not found");

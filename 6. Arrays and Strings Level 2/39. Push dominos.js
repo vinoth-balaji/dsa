@@ -1,42 +1,58 @@
-let d = ".L.R.....LR...L..R";
-let dominos = [];
-
-dominos[0] = "L";
-for (let i = 0; i < d.length; i++) {
-  dominos[i + 1] = d[i];
-}
-dominos[d.length + 1] = "R";
-
-let start = 0;
-for (let i = 1; i < dominos.length; i++) {
-  if (dominos[i] == "L" || dominos[i] == "R") {
-    updateDominosPos(dominos, start, i);
-    start = i;
-  }
-}
-
-function updateDominosPos(dominos, i, j) {
-  if (dominos[i] == "L" && dominos[j] == "L") {
-    for (let k = i + 1; k < j; k++) {
-      dominos[k] = "L";
-    }
-  } else if (dominos[i] == "R" && dominos[j] == "R") {
-    for (let k = i + 1; k < j; k++) {
-      dominos[k] = "R";
-    }
-  } else if (dominos[i] == "L" && dominos[j] == "R") {
-  } else if (dominos[i] == "R" && dominos[j] == "L") {
-    let mid = -1;
-    let diff = j - i + 1;
-
-    if (diff % 2 != 0) mid = parseInt((j + i) / 2);
-    else mid = (j + i) / 2 + 1;
-
-    for (let k = i + 1; k < j; k++) {
-      if (k < mid) dominos[k] = "R";
-      else if (k > mid) dominos[k] = "L";
+var pushDominoes = function (dominoes) {
+  dominoes = "L" + dominoes + "R";
+  dominoes = dominoes.split("");
+  let range = 0;
+  for (let i = 1; i < dominoes.length; i++) {
+    if (dominoes[i] != ".") {
+      handle(dominoes, range, i);
+      range = i;
     }
   }
-}
 
-console.log(dominos.slice(1, dominos.length - 1).join(""));
+  // console.log(dominoes);
+  return dominoes.slice(1, dominoes.length - 1).join("");
+};
+
+handle = function (dominoes, i, j) {
+  // console.log(dominoes[i], dominoes[j]);
+  if (dominoes[i] == "L" && dominoes[j] == "L") {
+    while (i <= j) {
+      dominoes[i] = "L";
+      i++;
+    }
+  } else if (dominoes[i] == "R" && dominoes[j] == "R") {
+    while (i <= j) {
+      dominoes[i] = "R";
+      i++;
+    }
+  } else if (dominoes[i] == "R" && dominoes[j] == "L") {
+    let diff = j - i - 1;
+    let mid = i + parseInt(diff / 2);
+    if (diff % 2 == 0) {
+      while (i <= mid) {
+        dominoes[i] = "R";
+        i++;
+      }
+
+      while (i < j) {
+        dominoes[i] = "L";
+        i++;
+      }
+    } else {
+      while (i <= mid) {
+        dominoes[i] = "R";
+        i++;
+      }
+
+      i++;
+      while (i < j) {
+        dominoes[i] = "L";
+        i++;
+      }
+    }
+  } else {
+  }
+};
+
+let dominoes = ".L.R...LR..L..";
+console.log(pushDominoes(dominoes));

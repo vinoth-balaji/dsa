@@ -1,5 +1,5 @@
 let a = [2, 1, 3, 4];
-a = a.sort();
+a = a.sort((a, b) => a - b);
 
 let pow = [];
 

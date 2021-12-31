@@ -3,8 +3,8 @@ let dep = new Array(910, 1200, 1120, 1130, 1900, 2000);
 
 let platforms = 0;
 
-arr = arr.sort();
-dep = dep.sort();
+arr = arr.sort((a, b) => a - b);
+dep = dep.sort((a, b) => a - b);
 
 let i = 1,
   j = 0;

@@ -13,7 +13,10 @@ function orderlyQueue(s, k) {
     }
     return ans;
   } else {
-    return s.split("").sort().join("");
+    return s
+      .split("")
+      .sort((a, b) => a - b)
+      .join("");
   }
 }
 

@@ -24,26 +24,23 @@ console.log(result);
 
 // optimized approach
 
-// calculating either left or right, and calculatingthe other whilt filling the result
-let a = [1, 2, 3, 2, 5, 4];
-
-let right = [],
-  result = [];
-
-right[a.length - 1] = a[a.length - 1];
-
-for (j = a.length - 2; j >= 0; j--) {
-  right[j] = right[j + 1] * a[j];
-}
-
-let leftProd = 1;
-for (let i = 0; i < a.length; i++) {
-  let rp = 1;
-  if (i + 1 < a.length) {
-    rp = right[i + 1];
+// calculating either left or right and storing it in result itself, and calculating the other while filling the result
+// space O(1)
+var productExceptSelf = function (nums) {
+  let ans = [];
+  for (i = nums.length - 1; i >= 0; i--) {
+    if (i == nums.length - 1) {
+      ans[i] = nums[i];
+    } else {
+      ans[i] = nums[i] * ans[i + 1];
+    }
   }
-  result[i] = leftProd * rp;
+  let p = nums[0];
+  ans[0] = ans[1];
+  for (let i = 1; i < nums.length; i++) {
+    ans[i] = p * (i + 1 < nums.length ? ans[i + 1] : 1);
+    p *= nums[i];
+  }
 
-  leftProd *= a[i];
-}
-console.log(result);
+  return ans;
+};
