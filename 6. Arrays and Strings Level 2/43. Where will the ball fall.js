@@ -1,4 +1,4 @@
-let a = [
+let grid = [
   [1, 1, 1, -1, -1],
   [1, 1, 1, -1, -1],
   [-1, -1, -1, 1, 1],
@@ -6,29 +6,46 @@ let a = [
   [-1, -1, -1, -1, -1],
 ];
 
-let ans = [];
+var findBall = function (grid) {
+  let ans = [];
 
-let rows = a.length,
-  cols = a[0].length;
+  for (let k = 0; k < grid[0].length; k++) {
+    let j = k;
+    let i = 0;
 
-for (let j = 0; j < cols; j++) {
-  let cur = j;
-  let next = 0;
-  let flag = false;
+    let flag = false;
+    for (i; i < grid.length; ) {
+      if (j < 0 || j > grid[0].length) {
+        flag = true;
+        break;
+      }
 
-  for (let i = 0; i < rows; i++) {
-    // etting next position left (-1) or right (1) => j++ or j--
-    next = cur + a[i][cur];
+      if (grid[i][j] == 1) {
+        if (grid[i][j] != grid[i][j + 1]) {
+          flag = true;
+          break;
+        }
 
-    if (next < 0 || next >= cols || a[i][next] != a[i][cur]) {
-      ans.push(-1);
-      flag = true;
-      break;
+        i++;
+        j++;
+      } else if (grid[i][j] == -1) {
+        if (grid[i][j] != grid[i][j - 1]) {
+          flag = true;
+          break;
+        }
+
+        i++;
+        j--;
+      }
     }
-    cur = next;
+
+    // console.log(i, j, flag);
+
+    if (!flag) ans.push(j);
+    else ans.push(-1);
   }
 
-  if (!flag) ans.push(cur);
-}
+  return ans;
+};
 
-console.log(ans);
+console.log(findBall(grid));

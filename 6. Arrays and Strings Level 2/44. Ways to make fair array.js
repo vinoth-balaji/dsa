@@ -1,40 +1,36 @@
-let a = [2, 1, 6, 4];
+var waysToMakeFair = function (a) {
+  let oddSum = [];
+  let evenSum = [];
 
-let os = 0,
-  es = 0,
-  oe = [];
-let ans = 0;
-for (let i = 0; i < a.length; i++) {
-  if (i % 2 == 0) {
-    es += a[i];
-  } else {
-    os += a[i];
+  for (let i = 0; i < a.length; i++) {
+    if (i == 0) {
+      evenSum.push(a[i]);
+      oddSum.push(0);
+    } else if (i == 1) {
+      oddSum.push(a[i]);
+      evenSum.push(evenSum[i - 1]);
+    } else if (i % 2 == 0) {
+      evenSum.push(a[i] + evenSum[i - 1]);
+      oddSum.push(oddSum[i - 1]);
+    } else {
+      oddSum.push(a[i] + oddSum[i - 1]);
+      evenSum.push(evenSum[i - 1]);
+    }
   }
 
-  oe[i] = {
-    even: es,
-    odd: os,
-  };
-}
+  count = 0;
 
-for (let i = 0; i < a.length; i++) {
-  let left_odd = 0,
-    right_odd = 0,
-    left_even = 0,
-    right_even = 0,
-    last = oe[a.length - 1];
+  for (let i = 0; i < a.length; i++) {
+    let lOS = i == 0 ? 0 : oddSum[i - 1],
+      lES = i == 0 ? 0 : evenSum[i - 1],
+      rES = lES + oddSum[oddSum.length - 1] - oddSum[i],
+      rOS = lOS + evenSum[evenSum.length - 1] - evenSum[i];
 
-  if (i == 0) {
-    right_odd = last["even"] - oe[i]["even"];
-    right_even = last["odd"] - oe[i]["odd"];
-  } else {
-    left_odd = oe[i - 1]["odd"];
-    right_odd = last["even"] - oe[i]["even"];
-
-    left_even = oe[i - 1]["even"];
-    right_even = last["odd"] - oe[i]["odd"];
+    if (rES == rOS) count++;
   }
-  if (left_odd + right_odd == left_even + right_even) ans++;
-}
 
-console.log(ans);
+  return count;
+};
+
+let nums = [2, 1, 6, 4];
+console.log(waysToMakeFair(nums));
