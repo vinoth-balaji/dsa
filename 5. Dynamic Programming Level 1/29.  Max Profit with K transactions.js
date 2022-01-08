@@ -37,13 +37,8 @@ for (let t = 0; t <= k; t++) {
     if (t == 0) dp[t][d] = 0;
     else {
       let sv = dp[t - 1][d - 1] - stocks[d - 1];
-      if (sv > max) max = sv;
-
-      if (max + stocks[d] > dp[t][d - 1]) {
-        dp[t][d] = max + stocks[d];
-      } else {
-        dp[t][d] = dp[t][d - 1];
-      }
+      max = Math.max(max, sv);
+      dp[t][d] = Math.max(dp[t][d - 1], max + stocks[d]);
     }
   }
 }

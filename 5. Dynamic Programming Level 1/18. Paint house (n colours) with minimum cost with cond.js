@@ -28,8 +28,8 @@ for (let i = 1; i < a.length; i++) {
   let n_min_2 = Number.POSITIVE_INFINITY;
 
   for (let j = 0; j < a[0].length; j++) {
-    if (min == dp[i - 1][j]) dp[i][j] = a[i][j] + min;
-    else dp[i][j] = a[i][j] + min_2;
+    if (min == dp[i - 1][j]) dp[i][j] = a[i][j] + min_2;
+    else dp[i][j] = a[i][j] + min;
 
     if (dp[i][j] < n_min) {
       n_min_2 = n_min;
