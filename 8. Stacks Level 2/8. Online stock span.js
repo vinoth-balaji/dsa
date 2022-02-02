@@ -30,8 +30,8 @@ StockSpanner.prototype.next = function (price) {
 };
 
 let stockSpanner = new StockSpanner();
-console.log(stockSpanner.next(45)); // return 1
-console.log(stockSpanner.next(70)); // return 1
-console.log(stockSpanner.next(48)); // return 1
-console.log(stockSpanner.next(59)); // return 2
-console.log(stockSpanner.next(79)); // return 1
+console.log(stockSpanner.next(45));
+console.log(stockSpanner.next(70));
+console.log(stockSpanner.next(48));
+console.log(stockSpanner.next(59));
+console.log(stockSpanner.next(79));
