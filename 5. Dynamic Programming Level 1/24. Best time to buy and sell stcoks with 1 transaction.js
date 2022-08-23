@@ -15,3 +15,15 @@ for (let i = 0; i < stocks.length; i++) {
 }
 
 console.log(maxProfit);
+
+// maxProfit = Number.NEGATIVE_INFINITY;
+// min = Number.POSITIVE_INFINITY;
+
+// for (let i = 0; i < stocks.length; i++) {
+//   if (stocks[i] >= min) {
+//     maxProfit = Math.max(maxProfit, stocks[i] - min);
+//   }
+//   min = Math.min(min, stocks[i]);
+// }
+
+// console.log(min, maxProfit);

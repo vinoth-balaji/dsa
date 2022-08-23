@@ -3,9 +3,7 @@ let stack = [];
 let b = [];
 
 // finding nger
-stack.push(a.length - 1);
-b[a.length - 1] = a.length;
-for (let i = a.length - 2; i >= 0; i--) {
+for (let i = a.length - 1; i >= 0; i--) {
   while (stack.length > 0 && a[stack[stack.length - 1]] <= a[i]) {
     stack.pop();
   }
@@ -23,7 +21,7 @@ let j = 0;
 let k = 2;
 let sw = [];
 for (let i = 0; i <= a.length - k; i++) {
-  if (j < i) j = i;
+  j = i;
 
   while (b[j] < i + k) {
     j = b[j];

@@ -16,3 +16,20 @@ for (i in b) {
     hashMap.set(b[i], hashMap.get(b[i]) - 1);
   }
 }
+
+//////////////////////////////////////
+
+let hashSet = {};
+
+for (let i of a) {
+  if (i in hashSet) {
+    hashSet[i] += 1;
+  } else hashSet[i] = 1;
+}
+
+for (let i of b) {
+  if (i in hashSet && hashSet[i] > 0) {
+    console.log(i);
+    hashSet[i] -= 1;
+  }
+}

@@ -39,7 +39,6 @@ for (let i = 0; i < a.length; i++) {
       stack.pop();
     }
     if (stack.length == 0) {
-      stack.push(i);
       lb[i] = -1;
     } else {
       lb[i] = stack[stack.length - 1];

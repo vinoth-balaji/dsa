@@ -27,3 +27,14 @@ function keypadCodes(s, ans) {
 }
 
 keypadCodes(s, "");
+
+// function keypadCodes(s, ans) {
+//   if (s.length == 0) {
+//     console.log(ans);
+//     return;
+//   }
+
+//   for (let i of charCodes[+s[0]]) {
+//     keypadCodes(s.substring(1), i + ans);
+//   }
+// }

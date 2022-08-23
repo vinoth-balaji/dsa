@@ -15,3 +15,14 @@ function allIndex(a, i, d) {
 
 allIndex(a, 0, 3);
 console.log(indexes);
+
+// function allIndex(a, i, d) {
+//   if (i == a.length) return -1;
+
+//   if (a[i] == d) indexes.push(i);
+
+//   allIndex(a, i + 1, d);
+// }
+
+// console.log(allIndex(a, 0, 3));
+// console.log(indexes);

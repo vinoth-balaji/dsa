@@ -1,6 +1,6 @@
 let a = ["a", "b", "c", "d", "e", "f", "g", "h"];
 let k = 3;
-if ((k > a, length - 1)) k = (k % a.length) - 1;
+if (k > a.length - 1) k = (k % a.length) - 1;
 function reverse(a, i, j) {
   while (i <= j) {
     [a[i], a[j]] = [a[j], a[i]];

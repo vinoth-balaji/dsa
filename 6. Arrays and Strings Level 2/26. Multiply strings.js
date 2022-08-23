@@ -1,4 +1,4 @@
-let num1 = "1234",
+let num1 = "123",
   num2 = "456";
 
 let k = 0,
@@ -19,6 +19,7 @@ else {
       carry = parseInt(sum / 10);
       k--;
     }
+    // console.log(res);
     if (carry != 0) res[k] = res[k] + carry;
     pf++;
   }

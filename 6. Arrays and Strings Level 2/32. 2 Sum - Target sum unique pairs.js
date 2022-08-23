@@ -13,6 +13,7 @@ while (i < j) {
 
   if (target == t) {
     if (i == 0 || (i != 0 && a[i] != a[i - 1])) {
+      // coz if previous i is same then j would also be same
       pairs.push([a[i], a[j]]);
     }
 

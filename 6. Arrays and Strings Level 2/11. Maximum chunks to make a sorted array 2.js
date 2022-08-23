@@ -9,15 +9,17 @@ var maxChunksToSorted = function (arr) {
 
   let leftMax = arr[0];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > leftMax) leftMax = arr[i];
+    leftMax = Math.max(leftMax, arr[i]);
 
-    if (i == arr.length - 1 && arr[i] <= leftMax) chunks++;
-    else if (leftMax <= rightMin[i + 1]) {
+    if (leftMax <= rightMin[i + 1]) {
       chunks++;
     }
   }
 
-  return chunks > 0 ? chunks : 1;
+  chunks++;
+
+  return chunks;
 };
+// let arr = [30, 10, 20, 40, 60, 50, 75, 70];
 let arr = [1, 0, 3, 2, 1];
 console.log(maxChunksToSorted(arr));

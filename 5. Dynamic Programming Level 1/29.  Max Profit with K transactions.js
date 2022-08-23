@@ -24,23 +24,23 @@ for (let t = 0; t <= k; t++) {
 console.log(dp, dp[k][stocks.length - 1]);
 
 // optimized code
-let stocks = [11, 6, 7, 19, 4, 1, 6, 18, 4];
-let k = 1;
+// let stocks = [11, 6, 7, 19, 4, 1, 6, 18, 4];
+// let k = 1;
 
-let dp = [];
-for (let i = 0; i <= k; i++) dp.push([0]);
+// let dp = [];
+// for (let i = 0; i <= k; i++) dp.push([0]);
 
-for (let t = 0; t <= k; t++) {
-  let max = Number.NEGATIVE_INFINITY;
+// for (let t = 0; t <= k; t++) {
+//   let max = Number.NEGATIVE_INFINITY;
 
-  for (let d = 1; d < stocks.length; d++) {
-    if (t == 0) dp[t][d] = 0;
-    else {
-      let sv = dp[t - 1][d - 1] - stocks[d - 1];
-      max = Math.max(max, sv);
-      dp[t][d] = Math.max(dp[t][d - 1], max + stocks[d]);
-    }
-  }
-}
+//   for (let d = 1; d < stocks.length; d++) {
+//     if (t == 0) dp[t][d] = 0;
+//     else {
+//       let sv = dp[t - 1][d - 1] - stocks[d - 1];
+//       max = Math.max(max, sv);
+//       dp[t][d] = Math.max(dp[t][d - 1], max + stocks[d]);
+//     }
+//   }
+// }
 
-console.log(dp, dp[k][stocks.length - 1]);
+// console.log(dp, dp[k][stocks.length - 1]);

@@ -7,6 +7,7 @@ function lastIndex(a, i, d) {
 
   // -1 means did not get the element from i+1 to last
   if (li == -1) {
+    // check if ith element is a match
     if (a[i] == d) return i;
     else return -1;
   } else {

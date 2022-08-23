@@ -1,11 +1,11 @@
-var tictactoe = function (moves) {
-  let n = 3; // since its given as 3*3 board
-  let totalMoves = 0;
-  let row = [0, 0, 0],
-    col = [0, 0, 0],
-    lrD = 0,
-    rlD = 0;
+let n = 3; // since its given as 3*3 board
+let totalMoves = 0;
+let row = [0, 0, 0],
+  col = [0, 0, 0],
+  lrD = 0,
+  rlD = 0;
 
+var tictactoe = function (moves) {
   totalMoves++;
   let r = moves[0],
     c = moves[1],

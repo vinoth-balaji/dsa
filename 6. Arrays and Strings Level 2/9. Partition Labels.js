@@ -12,9 +12,8 @@ let partitions = [];
 
 for (let i = 0; i < a.length; i++) {
   let maxIndex = hashmap.get(a[i]);
-  if (maxIndex > maxSize) {
-    maxSize = maxIndex;
-  }
+  maxSize = Math.max(maxSize, maxIndex);
+
   if (i == maxSize) {
     partitions.push(maxSize - start);
     start = i;
