@@ -10,7 +10,7 @@ var mostCompetitive = function (nums, k) {
     while (
       ans.length > 0 &&
       val < ans[ans.length - 1] &&
-      nums.length - (i + 1) >= k - ans.length
+      nums.length - (i + 1) >= k - ans.length // this is so that we dont empty the stack
     ) {
       ans.pop();
     }

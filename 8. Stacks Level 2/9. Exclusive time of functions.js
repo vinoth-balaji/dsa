@@ -26,6 +26,6 @@ var exclusiveTime = function (n, logs) {
 };
 
 let n = 2,
-  logs = ["0:start:0", "1:start:2", "1:end:5", "0:end:6"];
+  logs = ["0:start:0", "1:start:2", "0:end:5", "1:end:6"];
 
 console.log(exclusiveTime(n, logs));

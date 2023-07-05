@@ -41,5 +41,5 @@ var lengthOfLongestSubstring = function (s) {
   return ans.length;
 };
 
-let s = "abcabcbb";
+let s = "abcabcdbb";
 console.log(lengthOfLongestSubstring(s));

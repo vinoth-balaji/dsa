@@ -49,6 +49,6 @@ var fractionToDecimal = function (numerator, denominator) {
   }
 };
 
-let numerator = 33,
-  denominator = 333;
+let numerator = 22,
+  denominator = 7;
 console.log(fractionToDecimal(numerator, denominator));

@@ -10,6 +10,8 @@ var fourSumCount = function (nums1, nums2, nums3, nums4) {
     }
   }
 
+  // console.log(ABMap);
+
   for (let i = 0; i < nums3.length; i++) {
     // CD.push([]);
     for (let j = 0; j < nums4.length; j++) {

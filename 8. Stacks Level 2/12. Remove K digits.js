@@ -28,7 +28,7 @@ var removeKdigits = function (num, k) {
   }
 };
 
-let num = "112",
+let num = "12345",
   k = 1;
 
 console.log(removeKdigits(num, k));

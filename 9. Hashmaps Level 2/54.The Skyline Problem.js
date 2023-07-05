@@ -36,7 +36,7 @@ var getSkyline = function (buildings) {
 
   return ans;
 };
-
+//[start end height]
 let buildings = [
   [0, 2, 3],
   [2, 5, 3],

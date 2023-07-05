@@ -11,8 +11,8 @@ MovingAverage.prototype.next = function (t) {
     return this.sum / this.queue.length;
   } else {
     let last = this.queue.shift();
-    let avg = (this.sum - last) / this.size;
     this.sum -= last;
+    let avg = this.sum / this.size;
     return avg;
   }
 };

@@ -24,4 +24,4 @@ var decode = function (shortUrl) {
 
 let url = "https://leetcode.com/problems/design-tinyurl";
 let en = encode(url);
-console.log(decode(en));
+console.log(en, " ", decode(en));

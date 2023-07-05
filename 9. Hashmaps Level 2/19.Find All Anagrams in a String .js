@@ -53,3 +53,8 @@ compare = function (anagram, pattern) {
 
   return flag;
 };
+
+let string = "abcabaccba",
+  pattern = "abac";
+
+console.log(findAnagrams(string, pattern));

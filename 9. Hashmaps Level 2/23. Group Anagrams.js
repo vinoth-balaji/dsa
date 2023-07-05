@@ -1,4 +1,4 @@
-var groupAnagrams = function (strs, k) {
+var groupAnagrams = function (strs) {
   let ansMap = {};
   let ans = [];
   for (let s of strs) {
@@ -23,6 +23,7 @@ var groupAnagrams = function (strs, k) {
     } else ansMap[key].push(s);
   }
 
+  console.log(ansMap);
   Object.keys(ansMap).forEach((k) => {
     ans.push(ansMap[k]);
   });
