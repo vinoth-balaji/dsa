@@ -1,20 +1,21 @@
 var a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-function BinarySearch(a, key) {
-  let l = 0;
-  let h = a.length - 1;
-  while (l <= h) {
-    let m = parseInt((l + h) / 2);
+function BinarySearch(array, element) {
+  let start = 0;
+  end = array.length - 1;
 
-    if (key > a[m]) {
-      l = m + 1;
-    } else if (key < a[m]) {
-      h = m - 1;
+  while (start <= end) {
+    let mid = parseInt((start + end) / 2);
+
+    if (array[mid] == element) return mid;
+    else if (element > array[mid]) {
+      start = mid + 1;
     } else {
-      return m;
+      end = mid - 1;
     }
   }
+
   return -1;
 }
 
-console.log(BinarySearch(a, 70));
+console.log(BinarySearch(a, 90));

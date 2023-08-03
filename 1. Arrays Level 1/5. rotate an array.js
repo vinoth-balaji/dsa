@@ -1,6 +1,8 @@
 let a = ["a", "b", "c", "d", "e", "f", "g", "h"];
 let k = 3;
 if (k > a.length - 1) k = (k % a.length) - 1;
+if (k < 0) k = k + a.length;
+
 function reverse(a, i, j) {
   while (i <= j) {
     [a[i], a[j]] = [a[j], a[i]];
@@ -34,3 +36,15 @@ console.log(a);
 // }
 
 // console.log(rotate);
+
+// or
+// let a = ["a", "b", "c", "d", "e"];
+// let k = 1;
+
+// if (k > a.length - 1) k = (k % a.length) - 1;
+// if (k < 0) k = k + a.length;
+
+// let p1 = a.slice(a.length - k);
+// let p2 = a.slice(0, a.length - k);
+
+// console.log(p1.concat(p2));
